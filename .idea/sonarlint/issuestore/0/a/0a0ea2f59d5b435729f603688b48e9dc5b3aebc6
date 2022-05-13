@@ -1,0 +1,23 @@
+
+d
+java:S1192-"IDefine a constant instead of duplicating this literal "birthday" 4 times.(ï’¹îüÿÿÿÿ
+d
+java:S1192/"IDefine a constant instead of duplicating this literal "password" 4 times.(ºúâßùÿÿÿÿ
+^
+java:S11920"HDefine a constant instead of duplicating this literal "role_id" 4 times.(°¯
+c
+java:S1192,"HDefine a constant instead of duplicating this literal "surname" 4 times.(È½Ûðþÿÿÿÿ
+\
+java:S1192."FDefine a constant instead of duplicating this literal "email" 4 times.(áÑÈ
+–
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(°Öœ>
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Í±ë¼
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(˜¹°Åúÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ðã±×
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ä¨ÍÛ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(‡—¦î
