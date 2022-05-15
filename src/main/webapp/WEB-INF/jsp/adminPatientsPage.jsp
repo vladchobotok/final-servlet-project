@@ -78,7 +78,7 @@
                                         <select name="doctorId">
                                         <option value="0" disabled selected><fmt:message key="doctors"/></option>
                                         <c:forEach begin="1" end="${sessionScope.allDoctors.size()}" varStatus="loop">
-                                            <option value= "${loop.index}">${sessionScope.allDoctors.get(loop.index - 1).getUser().getName()} ${sessionScope.allDoctors.get(loop.index - 1).getUser().getSurname()} (${sessionScope.allDoctors.get(loop.index - 1).getDoctorType().getType()})</option>
+                                            <option value= "${sessionScope.allDoctors.get(loop.index - 1).getId()}">${sessionScope.allDoctors.get(loop.index - 1).getUser().getName()} ${sessionScope.allDoctors.get(loop.index - 1).getUser().getSurname()} (${sessionScope.allDoctors.get(loop.index - 1).getDoctorType().getType()})</option>
                                         </c:forEach>
                                         </select>
                                     </div>
@@ -95,6 +95,7 @@
                     <p><fmt:message key="birthdayList"/> <c:out value="${patient.getUser().getBirthday()}"/></p>
                     <p><fmt:message key="patientIdList"/> <c:out value="${patient.getId()}"/></p>
                     <p><fmt:message key="statusList"/> <c:out value="${patient.getUser().getRole().getName()}"/></p>
+                    <p><fmt:message key="currentDoctorList"/> <c:out value="${patient.getDoctor().getUser().getName()}"/> ${patient.getDoctor().getUser().getSurname()} (${patient.getDoctor().getDoctorType().getType()})</p>
                 </li>
                 </c:forEach>
             </ul>

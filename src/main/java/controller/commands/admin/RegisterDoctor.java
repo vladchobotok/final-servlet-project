@@ -4,11 +4,13 @@ import constants.HospitalJspPaths;
 import constants.HospitalUriPaths;
 import controller.commands.Command;
 import model.entity.User;
+import model.service.DoctorService;
 import utils.validation.AuthenticationValidation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -18,6 +20,8 @@ public class RegisterDoctor implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
@@ -32,13 +36,15 @@ public class RegisterDoctor implements Command {
         String confirmPassword = request.getParameter("confirm-password");
         int role = 2;
         int doctorType = 3;
-        if(request.getParameter("doctorType") != null) {
-            doctorType = Integer.parseInt(request.getParameter("doctorType"));
+        if(request.getParameter("doctorsType") != null) {
+            doctorType = Integer.parseInt(request.getParameter("doctorsType"));
         }
 
         User regUser = new User(name, surname, birthday, email, password, role);
 
         if (authenticationValidation.registerDoctor(regUser, confirmPassword, doctorType, request)) {
+            DoctorService doctorService = new DoctorService();
+            session.setAttribute("allDoctors", doctorService.findAllDoctors());
             response.sendRedirect(HospitalUriPaths.ADMIN_HOME);
             return;
         }

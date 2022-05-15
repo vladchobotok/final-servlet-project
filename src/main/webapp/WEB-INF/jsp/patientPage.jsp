@@ -44,7 +44,7 @@
                         <div class="container">
                             <h5>
                             <p><fmt:message key="yourDiagnosis"/> ${patient.getTreatment().getDiagnosis().getType()}</p>
-                            <p><fmt:message key="yourDoctor"/> ${patient.getDoctor().getUser().getName()} ${patient.getDoctor().getUserId().getSurname()} (${patient.getDoctor().getDoctorType().getType()})</p>
+                            <p><fmt:message key="yourDoctor"/> ${patient.getDoctor().getUser().getName()} ${patient.getDoctor().getUser().getSurname()} (${patient.getDoctor().getDoctorType().getType()})</p>
                             <p><fmt:message key="yourStatus"/> ${patient.getUser().getRole().getName()}</p>
                             </h5>
                         </div>

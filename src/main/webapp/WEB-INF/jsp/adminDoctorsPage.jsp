@@ -63,23 +63,23 @@
             </div>
 
             <ul class="collection col s12">
-                <% for (Doctor doctor : (List<Doctor>) request.getAttribute("activeDoctors")) { %>
+                <c:forEach items="${requestScope.activeDoctors}" var="doctor" varStatus="status">
                 <li class="collection-item ">
-                    <span class="title"><fmt:message key="nameList"/> <%= doctor.getUser().getName()%></span>
-                    <p><fmt:message key="surnameList"/> <%= doctor.getUser().getSurname()%></p>
-                    <p><fmt:message key="doctorTypeList"/> <%= doctor.getDoctorType().getType()%></p>
-                    <p><fmt:message key="doctorIdList"/> <%= doctor.getId()%></p>
+                    <span class="title"><fmt:message key="nameList"/> ${doctor.getUser().getName()}</span>
+                    <p><fmt:message key="surnameList"/> ${doctor.getUser().getSurname()}</p>
+                    <p><fmt:message key="doctorTypeList"/> ${doctor.getDoctorType().getType()}</p>
+                    <p><fmt:message key="doctorIdList"/> ${doctor.getId()}</p>
                 </li>
-                <% } %>
+                </c:forEach>
             </ul>
             <ul class="pagination col s12" style="margin-left: 50%; margin-bottom: 2%">
                 <c:forEach var="i" begin="1" end="${numberOfDoctorPages}">
                     <c:choose>
-                        <c:when test="${currentDoctorPage == i}">
+                        <c:when test="${currentDoctorsPage == i}">
                             <li class="active cyan lighten-1"><a style="pointer-events: none; cursor: default;">${i}</a></li>
                         </c:when>
                         <c:otherwise>
-                            <li class="waves-effect"><a href="${pageContext.request.contextPath}/admin/adminDoctorsPage?pageNumDoctors=${i}">${i}</a></li>
+                            <li class="waves-effect"><a href="${pageContext.request.contextPath}/admin/adminDoctorsPage?currentDoctorsPage=${i}">${i}</a></li>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>

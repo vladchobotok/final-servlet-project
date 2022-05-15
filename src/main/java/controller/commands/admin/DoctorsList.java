@@ -45,7 +45,7 @@ public class DoctorsList implements Command {
         }
         request.setAttribute("activeDoctors", doctors);
         request.setAttribute("numberOfDoctorPages", numberOfDoctorPages);
-        request.setAttribute("currentDoctorPage", currentDoctorPage);
+        request.setAttribute("currentDoctorsPage", currentDoctorPage);
         request.getRequestDispatcher(HospitalJspPaths.ADMIN_DOCTORS_PAGE).forward(request, response);
     }
 }

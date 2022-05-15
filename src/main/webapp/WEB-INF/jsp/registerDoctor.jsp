@@ -84,7 +84,7 @@
                     <label class="active" for="confirm-password"><fmt:message key="repeatPass"/></label>
                 </div>
                 <div class="input-field col s12">
-                    <select name="doctorType">
+                    <select name="doctorsType">
                         <option value="0" disabled selected><fmt:message key="doctorsType"/></option>
                         <option value="1"><fmt:message key="nurses"/></option>
                         <option value="2"><fmt:message key="ENT"/></option>

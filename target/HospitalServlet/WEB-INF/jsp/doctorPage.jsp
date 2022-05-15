@@ -85,7 +85,7 @@
                                 <select name="doctorId2">
                                     <option value="0" disabled selected><fmt:message key="executor"/></option>
                                     <c:forEach begin="1" end="${sessionScope.allDoctorsNurses.size() - 1}" varStatus="loop">
-                                        <option value= "${loop.index}">${sessionScope.allDoctorsNurses.get(loop.index - 1).getUser().getName()} ${sessionScope.allDoctorsNurses.get(loop.index - 1).getUser().getSurname()} (${sessionScope.allDoctorsNurses.get(loop.index - 1).getDoctorType().getType()})</option>
+                                        <option value= "${sessionScope.allDoctorsNurses.get(loop.index - 1).getId()}">${sessionScope.allDoctorsNurses.get(loop.index - 1).getUser().getName()} ${sessionScope.allDoctorsNurses.get(loop.index - 1).getUser().getSurname()} (${sessionScope.allDoctorsNurses.get(loop.index - 1).getDoctorType().getType()})</option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -96,7 +96,7 @@
                             <select name="assignmentType">
                                 <option value="0" disabled selected><fmt:message key="assignmentType"/></option>
                                 <c:forEach begin="1" end="${sessionScope.assignmentTypes.size() - 1}" varStatus="loop">
-                                    <option value= "${loop.index}">${sessionScope.assignmentTypes.get(loop.index - 1).getType()}</option>
+                                    <option value= "${sessionScope.assignmentTypes.get(loop.index - 1).getId()}">${sessionScope.assignmentTypes.get(loop.index - 1).getType()}</option>
                                 </c:forEach>
                             </select>
                             <div class="input-field center" style="margin-bottom: 40px">
@@ -121,7 +121,7 @@
                             <select name="diagnosis">
                                 <option value="0" disabled selected><fmt:message key="diagnosis"/></option>
                                 <c:forEach begin="1" end="${sessionScope.diagnoses.size() - 1}" varStatus="loop">
-                                    <option value= "${loop.index + 1}">${sessionScope.diagnoses.get(loop.index).getType()}</option>
+                                    <option value= "${sessionScope.diagnoses.get(loop.index).getId()}">${sessionScope.diagnoses.get(loop.index).getType()}</option>
                                 </c:forEach>
                             </select>
                         </div>

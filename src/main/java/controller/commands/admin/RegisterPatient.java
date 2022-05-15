@@ -4,11 +4,13 @@ import constants.HospitalJspPaths;
 import constants.HospitalUriPaths;
 import controller.commands.Command;
 import model.entity.User;
+import model.service.PatientService;
 import utils.validation.AuthenticationValidation;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -18,6 +20,8 @@ public class RegisterPatient implements Command {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
@@ -35,6 +39,8 @@ public class RegisterPatient implements Command {
         User regUser = new User(name, surname, birthday, email, password, role);
 
         if (authenticationValidation.registerPatient(regUser, confirmPassword, request)) {
+            PatientService patientService = new PatientService();
+            session.setAttribute("allPatients", patientService.findAll());
             response.sendRedirect(HospitalUriPaths.ADMIN_HOME);
             return;
         }
